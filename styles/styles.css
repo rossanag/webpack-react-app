@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+    font-family:'Arial', 'Helvetica', sans-serif 
+}
+
+body {
+    background-color: #83c7db;    
+    place-content: center;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+.container {
+    position: relative;    
+    margin: auto;    
+    margin-top: 160px;
+    display: block;
+    border: 1px solid #ccc;
+    justify-content: center;
+    align-items: center;
+    color:rgb(254, 254, 255);
+    font-size: medium;
+    background-color: rgb(18, 11, 210);
+    padding: 1rem;
+    border-radius: 4px;    
+    max-width: 500px;
+    padding: 16px;
+    height: 320px;
+    width: 480px;
+}

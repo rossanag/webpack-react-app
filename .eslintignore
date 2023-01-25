@@ -1,0 +1,5 @@
+# don't lint config files
+*.config.js
+
+# don't lint snapshots
+*.snap
