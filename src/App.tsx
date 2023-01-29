@@ -1,4 +1,22 @@
-// import React from 'react';
+
+/* import {useState} from 'react';
+
+const App = ({labelOn, labelOff} : any) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const onChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  return (
+    <label className='container'>
+      <input type="checkbox" checked={isChecked} onChange={onChange} />
+      {isChecked ? labelOn : labelOff}
+    </label>
+  );
+}
+ */
+import '../styles/styles.css'; 
 
 const App = () => {
     return (

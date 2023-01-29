@@ -16,7 +16,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    'css'
+    'css',
+    'jest'
   ],
   rules: {
     semi: ['error', 'always']

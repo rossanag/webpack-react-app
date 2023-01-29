@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "react",
+    "esModuleInterop": true, 
+    "jsx": "react-jsx",  //for TS, let just react without TS "jsx": "react"
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
