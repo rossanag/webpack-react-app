@@ -18,7 +18,7 @@
   ],
   "include": [
     "src/**/*", "declaration.d.ts" /* Include modules in the program. */
-  ],  
+, "*/setupTest.ts"  ],  
   "plugins": [{ "name": "typescript-plugin-css-modules" }] // to use css modules
 }
 

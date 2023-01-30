@@ -1,16 +1,18 @@
 /** @type {import('jest').Config} */
 
-const config =  {
+module.exports =  {
     verbose: true,
-    preset: 'ts-jest',
+    preset: 'ts-jest',        
+    setupFilesAfterEnv: ['./setupTest.ts'],  // ['<roorDir>/setupTest.ts'], 
+    testPathIgnorePatterns: ['./node_modules/'],    
     testEnvironment: 'jsdom',
     moduleNameMapper: {
       '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
         '<rootDir>/src/__mocks__/fileMock.ts',
-      // '\\.(css|less)$': '<rootDir>/src/__mocks__/styleMock.ts',      
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },    
-    setupFilesAfterEnv: ['<roorDir>/src/setupTests.ts'],    
+      '\\.(css|less|scss|sass)$': '<rootDir>/src/__mocks__/styleMock.ts',      
+      '\\.(css|less|scss|sass)$': 'identity-obj-proxy'  // -- identifica la clase
+    },   
+    testPathIgnorePatterns: ['./node_modules/'],
     collectCoverageFrom: ['**/*.{ts,tsx}', '!**/*.d.ts', '!**/node_modules/**', '!**/vendor/**'],
     coverageThreshold: {
       global: {
@@ -21,3 +23,5 @@ const config =  {
       },
     },
   };
+
+  // https://stackoverflow.com/questions/39418555/syntaxerror-with-jest-and-react-and-importing-css-files
