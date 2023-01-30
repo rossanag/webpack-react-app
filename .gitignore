@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/__snapshots__
+/src/__snapshots__
 junit.xml
 
 # production
