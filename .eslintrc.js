@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'standard-with-typescript',
+    'plugin:jest/recommended',
     'plugin:css/recommended'
   ],
   overrides: [
