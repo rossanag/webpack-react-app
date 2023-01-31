@@ -75,7 +75,8 @@ Add the following line at the top of the file ``` const HtmlWebpackPlugin = requ
  ```
 You can put a minimal options into devServer module tag.
 
-11- Install Typescript and the types for React ``` npm install --save-dev typescript @types/react @types/react-dom ``` and create a tsconfig.json and add the configuration
+11- Install Typescript and the types for React ``` npm install --save-dev typescript @types/react @types/react-dom ``` and create a tsconfig.json and add the configuration. To avoid the need to import React, you need to put the following jsx tag ``` "jsx": "react-jsx" ```
+Under the hood it injects `import _jsx`, [here is the explanation](https://www.typescriptlang.org/docs/handbook/jsx.html)
 
 12- Let's install the mini-css-extract-plugin, it splits the styles into separate .css files, it allows to load the styles asynchrounosly and on demand.
 It is convienient for production, in the case of development, use style-css.
@@ -87,7 +88,7 @@ It is convienient for production, in the case of development, use style-css.
       const isProduction = mode === 'production'
       return { .... }
 ```
-arg object has the mode attribute, which indicate if we are in development or production.
+`arg object` has the `mode` attribute, which indicate if we are in development or production.
 We have 2 objects defined in webpack.config.js , __rulesForTS__ and __rulesForAssets__ , please check them in the file. 
 The rules tag into the module is an array of objects.
 ```
@@ -127,8 +128,39 @@ Check the content of `babel.config.js`
 	- PostCSS-loader is a webpack loader so you can process CSS with PostCSS inside Webpack.
 	
 	``` npm install --save-dev postcss-loader postcss npm i -D  postcss postcss-loader postcss-preset-env ```
- __Note :__ after installing Tailwind  the h1, h2 html tags have the same font and font size. Tailwind rid out the styles. There are two reasons:
-  - for avoid a colision with the Tailwind scale
-  - There's a UI rule, headers don't have any style in order to apply consciously.
-  (Based on [tailwind docs](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles))
+ __Note :__ after installing Tailwind  the h1, h2 html tags have the same font and font size. Tailwind rid out the styles. 
+ There are two reasons:
+  	- for avoid a colision with the Tailwind scale
+  	- There's a UI rule, headers don't have any style in order to apply consciously.
+  (Based on the [tailwind docs](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles))
 
+16- Instal the following plugin to use CSS modules para usar módulos CSS  ``` npm install -D typescript-plugin-css-modules ```
+
+17- Install Eslint, linting is fundamental to pursue a clean code.
+``` npm --save-dev install eslint eslint-loader babel-eslint eslint-config-react eslint-plugin-react ```
+In my case, I want to use semicolon, so I need to add the following tag to the eslintrc.js
+	``` semi: ["error", "always"] ``` it means, add semicolon always or you'll have an error otherwise.
+	
+18. Add react testing following in part this [jest tutorial](https://jestjs.io/docs/tutorial-react)
+``` npm install -D @testing-library/jest-dom @testing-library/react @testing-library/react-hooks @testing-library/user-event  ```
+
+19- We need to mock the CSS import modules, since jest doesn't understand CSS syntax.
+We follow this [jest tutorial for importing CSS modules](https://jestjs.io/docs/webpack#mocking-css-modules)
+	-  ``` npm install --save-dev identity-obj-proxy ```
+	- ``` npm install --save-devbabel-jest jest-css-modules-transform ``` (according to this [stackoverflow post](stackoverflow: https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library))
+	- ``` npm install --save-dev @types/jest para TS ```
+
+We modify jest.config.file for importing CSS modules
+``` 
+moduleNameMapper: {
+      '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+        '<rootDir>/src/__mocks__/fileMock.ts',
+      '\\.(css|less|scss|sass)$': '<rootDir>/src/__mocks__/styleMock.ts',      
+      '\\.(css|less|scss|sass)$': 'identity-obj-proxy'  
+    }
+```    
+
+
+
+
+	
