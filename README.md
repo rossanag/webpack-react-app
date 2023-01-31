@@ -73,13 +73,12 @@ devServer: {
 }
     
  ```
-You can put a minimal options into devServer module tag.
+You can put a minimal set of options into the devServer module tag.
 
-11- Install Typescript and the types for React ``` npm install --save-dev typescript @types/react @types/react-dom ``` and create a tsconfig.json and add the configuration. To avoid the need to import React, you need to put the following jsx tag ``` "jsx": "react-jsx" ```
-Under the hood it injects `import _jsx`, [here is the explanation](https://www.typescriptlang.org/docs/handbook/jsx.html)
+11- Install Typescript and the types for React ``` npm install --save-dev typescript @types/react @types/react-dom ``` and create a tsconfig.json and add the configuration afterwards. To avoid the need to import React, you need to put the following jsx tag  value ``` "jsx": "react-jsx" ```
+Under the hood it injects `import _jsx` and not `import React` which make the app faster, [here is the explanation](https://www.typescriptlang.org/docs/handbook/jsx.html)
 
-12- Let's install the mini-css-extract-plugin, it splits the styles into separate .css files, it allows to load the styles asynchrounosly and on demand.
-It is convienient for production, in the case of development, use style-css.
+12- Let's install the mini-css-extract-plugin, it splits the styles into separate .css files, it allows to load the styles asynchrounosly and on demand. It is convienient for production because it causes less payload. In the development phase use style-css.
 ``` npm install --save-dev mini-css-extract-plugin ```
 
 13- In order to separate the webpack.config.js for development or production, our file returns a function rather than a file.
@@ -105,7 +104,7 @@ The rules tag into the module is an array of objects.
 ```
 If we are in production we use MiniCssExtractPlugin, otherwise style-loader. (Later on we'll talk about postcss-loader)
 
-14- We will use caching to save bandwidth, if the file didn't change we will use the cached version
+14- We will use caching to save bandwidth to avoid unnecessary downloads, if the file didn't change we will use the cached version
 ```
 output: {   
       filename: isProduction ? '[name].[contenthash].js' : 'main.js',
@@ -116,7 +115,12 @@ output: {
 For Example, If you changed only main.js file, new hash will be generated only for the changed file. In most cases, you will be using ContentHash for production.
 With the help of contenthash, you can implement long term caching in the browsers. Browser will serve the cached file as long as the hash remains same.
 
-__Note : devtool__ It allows to have two maps of code, one compiled and the original (source-map), it is usefull to debug errors in development mode in a plan JS. source-map creates some overhead.
+In the __build__ folder you will see the main cached file something like main.e94cb1e35809524bc14a.js
+This will the main that will be injected into the build/index.html
+``` <script defer="defer" src="main.e94cb1e35809524bc14a.js"></script> ```
+
+__Note : devtool__ It allows to have two files of code, one compiled and full of non comprehensive symbols, and the original (source-map). This option is usefull to debug errors in in a plain JS where in development mode. 
+Caveat: source-map creates some overhead.
 
 15- We will instal Babel, a transpiler for JavaScript. Basically transforms code written with the last JS features and transform it into a code that can be understandable by older browsers.
 
@@ -131,17 +135,18 @@ Check the content of `babel.config.js`
   - PostCSS-loader is a webpack loader so you can process CSS with PostCSS inside Webpack.	
 	``` npm install --save-dev postcss-loader postcss npm i -D  postcss postcss-loader postcss-preset-env ```
 	
- __Note :__ after installing Tailwind  the h1, h2 html tags have the same font and font size. Tailwind rid out the styles. 
+ __Note :__ after installing Tailwind  the h1, h2 html tags will have the same font and font size. Tailwind rid out the default styles from them. 
  There are two reasons:
-  	- To avoid a colision with the Tailwind's scale
-  	- There's a UI rule, the headers shouldn't have any style in order to apply consciously.
-  (Based on the [tailwind docs](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles))
+  	- To avoid a collision with the Tailwind's scale
+  	- Because of a UI rule, the headers shouldn't have any style in order to apply them consciously.
+  (Source: [tailwind docs](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles))
 
-16- Install the following plugin to use CSS modules para usar módulos CSS  ``` npm install -D typescript-plugin-css-modules ```
+16- Install the following plugin to use CSS modules  ``` npm install -D typescript-plugin-css-modules ```
 
-17- Install Eslint, linting is fundamental to pursue a clean code.
+17- Install Eslint, linting is fundamental to pursue a clean code by checking style and syntax.
 ``` npm --save-dev install eslint eslint-loader babel-eslint eslint-config-react eslint-plugin-react ```
-In my case, I want to use semicolon, so I need to add the following tag to the eslintrc.js
+By running ``` npm run eslint ``` you can set the rules for eslint.
+Since I want to use semicolon, which isn set by default in the generic JS standard, so I need to add the following tag to the eslintrc.js
 	``` semi: ["error", "always"] ``` it means, add semicolon always or you'll have an error otherwise.
 	
 18. Add react testing following in part this [jest tutorial](https://jestjs.io/docs/tutorial-react)
@@ -167,6 +172,9 @@ moduleNameMapper: {
 
 The identity-obj-proxy is used to inject the class names into the snapshot file.
 I had to create a __mock__ folder with the fileMock.ts and styleMock.ts for using CSS modules.
+
+20- Running tests, you can see in package.json the differents options to run test.
+The test I wrote create a snapshot folder in the same folder the test, the name is _snapshots_
 
 __Note :__ I needed to import the latest version of jest-cli in order to correctly import .css files ``` npm i -D jest-cli@latest ``` 
 There are several solutions around, but this one I found in a stackoverflow post was the only one it worked for me.
