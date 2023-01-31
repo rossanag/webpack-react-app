@@ -156,7 +156,8 @@ In jest.config.js in the ``` setupFilesAfterEnv: ['./setupTest.ts'] ``` instead 
 19- We need to mock the CSS import modules, since jest doesn't understand CSS syntax.
 We follow this [jest tutorial for importing CSS modules](https://jestjs.io/docs/webpack#mocking-css-modules)
 	-  ``` npm install --save-dev identity-obj-proxy ```
-	- ``` npm install --save-devbabel-jest jest-css-modules-transform ``` (according to this [stackoverflow post](stackoverflow: https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library))
+	- ``` npm install --save-devbabel-jest jest-css-modules-transform ``` 
+  Source this [stackoverflow post](stackoverflow: https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library)
 	
 	- ``` npm install --save-dev @types/jest ``` para TS
 	
