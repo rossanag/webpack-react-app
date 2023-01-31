@@ -176,8 +176,8 @@ moduleNameMapper: {
 The `identity-obj-proxy` is used to inject the class names into the snapshot file.
 I had to create a __mock__ folder with the fileMock.ts and styleMock.ts for using CSS modules.
 
-20- Running tests, you can see in package.json the differents options to run test.
-The test I wrote create a snapshot folder in the same folder the test, the name is _snapshots_
+20- Running tests: you can see in package.json the differents options to run the tests.
+The test I wrote create a snapshot folder in the same folder the test is, the folder name is _snapshots_
 
 __Note :__ I needed to import the latest version of jest-cli in order to correctly import .css files ``` npm i -D jest-cli@latest ``` 
 There are several solutions around, but this one I found in a stackoverflow post was the only one it worked for me.
