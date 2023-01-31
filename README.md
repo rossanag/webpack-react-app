@@ -37,7 +37,7 @@ A boilerplate for creating a Reactjs project without using create-react-app
      
   }
   ```
-  ``` __dirname ``` is a magic variable that holds the root project folder
+  ``` __dirname ``` is a "magic" variable that holds the root project folder
   
   
   7- We install react and react dom: ``` npm install react-dom -E ``` .
@@ -59,7 +59,7 @@ Add the following line at the top of the file ``` const HtmlWebpackPlugin = requ
 10- Install ``` npm install -D webpack-dev-server ``` and configure devServer tag in webpack.config.js to open the browser inmediatelly and to refresh it after every change in the code.
 
 ```
-	devServer: {
+devServer: {
       static: {
         directory: path.join(__dirname, 'build')
       },
@@ -70,7 +70,7 @@ Add the following line at the top of the file ``` const HtmlWebpackPlugin = requ
       client: {
         overlay: true // show errors in browser
       }
-    }
+}
     
  ```
 You can put a minimal options into devServer module tag.
@@ -88,7 +88,8 @@ It is convienient for production, in the case of development, use style-css.
       const isProduction = mode === 'production'
       return { .... }
 ```
-`arg object` has the `mode` attribute, which indicate if we are in development or production.
+`arg object` has the `mode` attribute, which indicates if we are in development or production stage.
+
 We have 2 objects defined in webpack.config.js , __rulesForTS__ and __rulesForAssets__ , please check them in the file. 
 The rules tag into the module is an array of objects.
 ```
@@ -124,19 +125,19 @@ __Note : devtool__ It allows to have two maps of code, one compiled and the orig
 We will use the babel-loader typescript loader instead ts-loader, the last one brought us some problems at the time to avoid import React in .ts files
 Check the content of `babel.config.js`
 
-15- Instalar [tailwind](https://tailwindcss.com/) 
+15- Install [tailwind](https://tailwindcss.com/) 
   - ``` npm install -D tailwindcss postcss autoprefixer ```
-	- ``` npx tailwindcss init ``` to create ts
-	- PostCSS-loader is a webpack loader so you can process CSS with PostCSS inside Webpack.
-	
+  - ``` npx tailwindcss init ``` to create ts
+  - PostCSS-loader is a webpack loader so you can process CSS with PostCSS inside Webpack.	
 	``` npm install --save-dev postcss-loader postcss npm i -D  postcss postcss-loader postcss-preset-env ```
+	
  __Note :__ after installing Tailwind  the h1, h2 html tags have the same font and font size. Tailwind rid out the styles. 
  There are two reasons:
-  	- for avoid a colision with the Tailwind scale
-  	- There's a UI rule, headers don't have any style in order to apply consciously.
+  	- To avoid a colision with the Tailwind's scale
+  	- There's a UI rule, the headers shouldn't have any style in order to apply consciously.
   (Based on the [tailwind docs](https://tailwindcss.com/docs/adding-custom-styles#adding-base-styles))
 
-16- Instal the following plugin to use CSS modules para usar módulos CSS  ``` npm install -D typescript-plugin-css-modules ```
+16- Install the following plugin to use CSS modules para usar módulos CSS  ``` npm install -D typescript-plugin-css-modules ```
 
 17- Install Eslint, linting is fundamental to pursue a clean code.
 ``` npm --save-dev install eslint eslint-loader babel-eslint eslint-config-react eslint-plugin-react ```
