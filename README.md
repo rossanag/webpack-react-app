@@ -148,8 +148,9 @@ In my case, I want to use semicolon, so I need to add the following tag to the e
 We follow this [jest tutorial for importing CSS modules](https://jestjs.io/docs/webpack#mocking-css-modules)
 	-  ``` npm install --save-dev identity-obj-proxy ```
 	- ``` npm install --save-devbabel-jest jest-css-modules-transform ``` (according to this [stackoverflow post](stackoverflow: https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library))
-	- ``` npm install --save-dev @types/jest para TS ```
-
+	
+	- ``` npm install --save-dev @types/jest ``` para TS
+	
 We modify jest.config.file for importing CSS modules
 ``` 
 moduleNameMapper: {
@@ -160,7 +161,8 @@ moduleNameMapper: {
     }
 ```    
 
+The identity-obj-proxy is used to inject the class names into the snapshot file
 
-
-
+__Note :__ I need to import the latest version of jest-cli in order to correctly import .css files ``` npm i -D jest-cli@latest ``` 
+There are several solutions around, but this one I found in a stackoverflow post was the one it worked.
 	
