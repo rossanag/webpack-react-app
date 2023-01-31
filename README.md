@@ -184,16 +184,17 @@ There are several solutions around, but this one I found in a stackoverflow post
 
 ### References
 
-[Webpack and babel for a reactjs application](https://dev.to/shivampawar/setup-webpack-and-babel-for-a-react-js-application-24f5)	
-[Webpack with React and Babel](https://www.youtube.com/watch?v=FMNuTj89RzU) - spanish
-[Webpack configurations react application](https://blog.logrocket.com/versatile-webpack-configurations-react-application/)
-[Babel-preset-env explanation](https://babeljs.io/docs/en/babel-preset-env)
-[Creating a react app with webpack](https://jsramblings.com/creating-a-react-app-with-webpack/)
-[Easy debugging in react with webpack source-maps](https://medium.com/@Linda_Ikechukwu/easy-debugging-in-react-with-webpack-source-maps-5dd80a753cab)
-[Set up react with ts babel and webpack-5](https://indrajitbnikam.hashnode.dev/set-up-react-with-ts-babel-and-webpack-5-in-just-25-steps)
-[The complete guide for setting up react app from scratch feat typescript](https://dev.to/brandonwie/the-complete-guide-for-setting-up-react-app-from-scratch-feat-typescript-385b)
-[Setup jest and react-testing-library in a react project step by stepguide](https://dev.to/ivadyhabimana/setup-jest-and-react-testing-library-in-a-react-project-a-step-by-step-guide-1mf0)
-[Babel and TS](https://byby.dev/ts-with-babel)
+- [Webpack and babel for a reactjs application](https://dev.to/shivampawar setup-webpack-and-babel-for-a-react-js-application-24f5)	
+
+- [Webpack with React and Babel](https://www.youtube.com/watch?v=FMNuTj89RzU) - spanish
+- [Webpack configurations react application](https://blog.logrocket.com/versatile-webpack-configurations-react-application/)
+- [Babel-preset-env explanation](https://babeljs.io/docs/en/babel-preset-env)
+- [Creating a react app with webpack](https://jsramblings.com/creating-a-react-app-with-webpack/)
+- [Easy debugging in react with webpack source-maps](https://medium.com/@Linda_Ikechukwu/easy-debugging-in-react-with-webpack-source-maps-5dd80a753cab)
+- [Set up react with ts babel and webpack-5](https://indrajitbnikam.hashnode.dev/set-up-react-with-ts-babel-and-webpack-5-in-just-25-steps)
+- [The complete guide for setting up react app from scratch feat typescript](https://dev.to/brandonwie/the-complete-guide-for-setting-up-react-app-from-scratch-feat-typescript-385b)
+- [Setup jest and react-testing-library in a react project step by stepguide](https://dev.to/ivadyhabimana/setup-jest-and-react-testing-library-in-a-react-project-a-step-by-step-guide-1mf0)
+- [Babel and TS](https://byby.dev/ts-with-babel)
 
 
 
