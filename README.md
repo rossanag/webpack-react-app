@@ -115,7 +115,9 @@ output: {
 For Example, If you changed only main.js file, new hash will be generated only for the changed file. In most cases, you will be using ContentHash for production.
 With the help of contenthash, you can implement long term caching in the browsers. Browser will serve the cached file as long as the hash remains same.
 
-15- We wil instal Babel, a transpiler for JavaScript. Basically transforms code written with the last JS features and transform it into a code that can be understandable by older browsers.
+__Note : devtool__ It allows to have two maps of code, one compiled and the original (source-map), it is usefull to debug errors in development mode in a plan JS. source-map creates some overhead.
+
+15- We will instal Babel, a transpiler for JavaScript. Basically transforms code written with the last JS features and transform it into a code that can be understandable by older browsers.
 
 ``` npm install --save-dev @babel/core @babel/preset-env  @babel/preset-react @babel/preset-typescript babel-loader ```
 
@@ -163,6 +165,22 @@ moduleNameMapper: {
 
 The identity-obj-proxy is used to inject the class names into the snapshot file
 
-__Note :__ I need to import the latest version of jest-cli in order to correctly import .css files ``` npm i -D jest-cli@latest ``` 
-There are several solutions around, but this one I found in a stackoverflow post was the one it worked.
+__Note :__ I needed to import the latest version of jest-cli in order to correctly import .css files ``` npm i -D jest-cli@latest ``` 
+There are several solutions around, but this one I found in a stackoverflow post was the only one it worked for me.
+
+### References
+
+[Webpack and babel for a reactjs application](https://dev.to/shivampawar/setup-webpack-and-babel-for-a-react-js-application-24f5)	
+[Webpack with React and Babel](https://www.youtube.com/watch?v=FMNuTj89RzU) - spanish
+[Webpack configurations react application](https://blog.logrocket.com/versatile-webpack-configurations-react-application/)
+[Babel-preset-env explanation](https://babeljs.io/docs/en/babel-preset-env)
+[Creating a react app with webpack](https://jsramblings.com/creating-a-react-app-with-webpack/)
+[Easy debugging in react with webpack source-maps](https://medium.com/@Linda_Ikechukwu/easy-debugging-in-react-with-webpack-source-maps-5dd80a753cab)
+[Set up react with ts babel and webpack-5](https://indrajitbnikam.hashnode.dev/set-up-react-with-ts-babel-and-webpack-5-in-just-25-steps)
+[The complete guide for setting up react app from scratch feat typescript](https://dev.to/brandonwie/the-complete-guide-for-setting-up-react-app-from-scratch-feat-typescript-385b)
+[Setup jest and react-testing-library in a react project step by stepguide](https://dev.to/ivadyhabimana/setup-jest-and-react-testing-library-in-a-react-project-a-step-by-step-guide-1mf0)
+[Babel and TS](https://byby.dev/ts-with-babel)
+
+
+
 	
