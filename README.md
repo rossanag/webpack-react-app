@@ -57,6 +57,7 @@ plugins : [
 Add the following line at the top of the file ``` const HtmlWebpackPlugin = require('html-webpack-plugin') ```
 
 10- Install ``` npm install -D webpack-dev-server ``` and configure devServer tag in webpack.config.js to open the browser inmediatelly and to refresh it after every change in the code.
+It allows [HMR](https://webpack.js.org/concepts/hot-module-replacement/) that module IDs and chunk IDs are consistent between these builds. It typically stores these IDs in memory.
 
 ```
 devServer: {
