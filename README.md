@@ -184,7 +184,7 @@ There are several solutions around, but this one I found in a stackoverflow post
 
 ### References
 
-- [Webpack and babel for a reactjs application](https://dev.to/shivampawar setup-webpack-and-babel-for-a-react-js-application-24f5)	
+- [Webpack and babel for a reactjs application](https://dev.to/shivampawarsetup-webpack-and-babel-for-a-react-js-application-24f5)	
 
 - [Webpack with React and Babel](https://www.youtube.com/watch?v=FMNuTj89RzU) - spanish
 - [Webpack configurations react application](https://blog.logrocket.com/versatile-webpack-configurations-react-application/)
