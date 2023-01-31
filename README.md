@@ -156,15 +156,17 @@ In jest.config.js in the ``` setupFilesAfterEnv: ['./setupTest.ts'] ``` instead 
 
 19- We need to mock the CSS import modules, since jest doesn't understand CSS syntax.
 We follow this [jest tutorial for importing CSS modules](https://jestjs.io/docs/webpack#mocking-css-modules)
-	-  ``` npm install --save-dev identity-obj-proxy ```
 
-	- ``` npm install --save-devbabel-jest jest-css-modules-transform ``` 
-  
-  Source this [stackoverflow post](https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library)
+	  -  ``` npm install --save-dev identity-obj-proxy ```
+
+	  - ``` npm install --save-devbabel-jest jest-css-modules-transform ``` 
+
+    Source this [stackoverflow post](https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library)  
 	
-	- ``` npm install --save-dev @types/jest ``` para TS
+	  - ``` npm install --save-dev @types/jest ``` para TS
 	
-We modify jest.config.file for importing CSS modules
+We modify `jest.config.js` for importing CSS modules
+
 ``` 
 moduleNameMapper: {
       '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -174,7 +176,7 @@ moduleNameMapper: {
     }
 ```    
 
-The identity-obj-proxy is used to inject the class names into the snapshot file.
+The `identity-obj-proxy` is used to inject the class names into the snapshot file.
 I had to create a __mock__ folder with the fileMock.ts and styleMock.ts for using CSS modules.
 
 20- Running tests, you can see in package.json the differents options to run test.
