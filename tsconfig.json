@@ -4,6 +4,11 @@
     "jsx": "react-jsx",  //for TS, let just react without TS "jsx": "react"
     "module": "esnext",
     "moduleResolution": "node",
+    "declaration": true,    
+    // Process & infer types from .js files.
+    "allowJs": true,
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
     "lib": [
       "DOM",
       "DOM.Iterable",
