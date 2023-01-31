@@ -117,10 +117,11 @@ With the help of contenthash, you can implement long term caching in the browser
 
 In the __build__ folder you will see the main cached file something like main.e94cb1e35809524bc14a.js
 This will the main that will be injected into the build/index.html
+
 ``` <script defer="defer" src="main.e94cb1e35809524bc14a.js"></script> ```
 
-__Note : devtool__ It allows to have two files of code, one compiled and full of non comprehensive symbols, and the original (source-map). This option is usefull to debug errors in in a plain JS where in development mode. 
-Caveat: source-map creates some overhead.
+__Note : devtool__ It allows to have two files of code, one compiled and full of non comprehensive symbols, and the original (source-map). This option is usefull to debug errors in a plain JS free of strange symbols while we are in development mode. 
+Caveat: source-map creates some overhead that's why is used in development mode.
 
 15- We will instal Babel, a transpiler for JavaScript. Basically transforms code written with the last JS features and transform it into a code that can be understandable by older browsers.
 
@@ -129,7 +130,7 @@ Caveat: source-map creates some overhead.
 We will use the babel-loader typescript loader instead ts-loader, the last one brought us some problems at the time to avoid import React in .ts files
 Check the content of `babel.config.js`
 
-15- Install [tailwind](https://tailwindcss.com/) 
+15- Install [tailwind](https://tailwindcss.com/) to apply styles.
   - ``` npm install -D tailwindcss postcss autoprefixer ```
   - ``` npx tailwindcss init ``` to create ts
   - PostCSS-loader is a webpack loader so you can process CSS with PostCSS inside Webpack.	
@@ -156,8 +157,10 @@ In jest.config.js in the ``` setupFilesAfterEnv: ['./setupTest.ts'] ``` instead 
 19- We need to mock the CSS import modules, since jest doesn't understand CSS syntax.
 We follow this [jest tutorial for importing CSS modules](https://jestjs.io/docs/webpack#mocking-css-modules)
 	-  ``` npm install --save-dev identity-obj-proxy ```
+
 	- ``` npm install --save-devbabel-jest jest-css-modules-transform ``` 
-  Source this [stackoverflow post](stackoverflow: https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library)
+  
+  Source this [stackoverflow post](https://stackoverflow.com/questions/71881494/testing-css-modules-styles-in-testing-library)
 	
 	- ``` npm install --save-dev @types/jest ``` para TS
 	
