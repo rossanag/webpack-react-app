@@ -145,6 +145,7 @@ In my case, I want to use semicolon, so I need to add the following tag to the e
 	
 18. Add react testing following in part this [jest tutorial](https://jestjs.io/docs/tutorial-react)
 ``` npm install -D @testing-library/jest-dom @testing-library/react @testing-library/react-hooks @testing-library/user-event  ```
+In jest.config.js in the ``` setupFilesAfterEnv: ['./setupTest.ts'] ``` instead of ``` ['<roorDir>/setupTest.ts'] ```
 
 19- We need to mock the CSS import modules, since jest doesn't understand CSS syntax.
 We follow this [jest tutorial for importing CSS modules](https://jestjs.io/docs/webpack#mocking-css-modules)
@@ -163,7 +164,8 @@ moduleNameMapper: {
     }
 ```    
 
-The identity-obj-proxy is used to inject the class names into the snapshot file
+The identity-obj-proxy is used to inject the class names into the snapshot file.
+I had to create a __mock__ folder with the fileMock.ts and styleMock.ts for using CSS modules.
 
 __Note :__ I needed to import the latest version of jest-cli in order to correctly import .css files ``` npm i -D jest-cli@latest ``` 
 There are several solutions around, but this one I found in a stackoverflow post was the only one it worked for me.
